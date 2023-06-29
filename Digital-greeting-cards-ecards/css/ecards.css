@@ -1,0 +1,505 @@
+ @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+img {
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+#ecard-preview-submit {
+	margin-top: 14px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+ .ecard-hidden {
+    overflow: hidden;
+}
+
+#ecard-preview-wr-top {
+	position: relative;
+	z-index: 2;
+	width: 680px;
+	margin: 0 auto 5%;
+	top: 5%;
+	max-width: 90%;
+	padding: 40px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	box-sizing: border-box;
+}
+
+#ecard-preview-wr {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
+    overflow: auto;
+}
+
+#preview-close {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 55px;
+    font-weight: 300;
+    font-family: open sans;
+    cursor: pointer;
+    line-height: 40px;
+    color: #1b1b1b;
+    transition: all 0.2s ease;
+}
+
+#preview-close-layer {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    z-index: 1;
+    background-color: rgba(76, 76, 76, 0.52);
+}
+
+.ecard-preview-head {
+  color: #000;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  line-height: 1.4;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.ecard-preview-inner-box {
+  border: solid 1px #ccc;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 2px;
+}
+
+.ecard-preview-msg {
+  color: #333;
+  font-size: 20px;
+  line-height: 1.4;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  padding: 15px 0;
+  border-bottom: solid 1px #ececec;
+  border-top: solid 1px #ececec;
+}
+
+#ecard-preview-box {
+  
+  padding: 30px;
+  margin: 20px auto;
+  width: auto;
+  height: auto;
+}
+
+.ecard-top-heads {
+    text-align: center;
+}
+
+.ecard-top-heads h1 {
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 40px;
+  margin: 0 0 25px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.ecard-form-userinfo-wr .ecard-form-field:first-child {
+  margin-right: 10px;
+}
+
+.ecard-form-userinfo-wr .ecard-form-field:last-child {
+  margin-left: 10px;
+}
+
+.ecard-form-userinfo-wr .ecard-form-field {
+  width: calc(50% - 10px);
+}
+
+.ecard-form-userinfo-wr {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ecard-top-heads h2 {
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 22px 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+#ecard-email-form-wr {
+  max-width: 700px;
+  margin: 32px auto 0;
+  padding: 0;
+  width: 100%;
+}
+
+.ecard-color-input{
+  visibility: hidden;
+}
+
+.ecard-color-scheme-wr label {
+  float: left;
+  width: 42px;
+  position: relative;
+  cursor: pointer;
+  margin: 10px 10px 10px 0;
+  box-shadow: 3px 3px 8px #e6e6e6;
+  height: 42px;
+  text-align: center;
+  line-height: 42px;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  font-size: 0;
+  color: transparent !important;
+}
+
+.ecard-color-scheme-wr label.active {
+  border: 3px solid #076c07;
+}
+
+.ecard-form-submit-field {
+  display: block;
+  margin-top: 15px;
+}
+ 
+input.ecard-input:focus {
+  border: 1px solid rgb(125, 173, 236) !important;
+}
+
+#ecard-msg {
+  height: 120px;
+  padding: 10px;
+}
+
+.ecard-msg-count {
+  color: #333;
+  font-size: 15px;
+  text-align: right;
+}
+
+.ecard-form-field label {
+  color: #000;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+
+.ecard-form-field {
+  margin-bottom: 16px;
+}
+
+#ecard-ty-wr .ecard-ty-top h5 {
+  font-family: 'Roboto', sans-serif;
+  color: #000;
+  display: block;
+  margin: 35px auto;
+}
+
+.ecard-ty-bottom .ecard-ty-ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  padding: 0;
+}
+
+.ecard-ty-bottom .ecard-ty-ul a:hover {
+  background-color: #076c07;
+  color: #fff;
+}
+
+.ecard-ty-bottom .ecard-ty-ul a {
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 2px solid #076c07;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #076c07;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  margin: 7px;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: none;
+  display: inline-block;
+}
+
+ 
+
+#ecard-ty-wr h3 {
+  color: #000;
+  font-weight: 600;
+  font-size: 40px;
+  margin: 0 0 25px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#ecard-ty-wr h3 + img {
+  max-width: 200px;
+  margin-top: 20px;
+}
+
+#ecard-ty-wr {
+  text-align: center;
+}
+ 
+
+/*New Design*/
+.clear{
+  clear:both;
+}
+.ecards-panel .Ecard-Sidebar {
+  padding: 0;
+  margin: 0 !important;
+  list-style: none;
+} 
+.ecards-panel h2{ 
+  font-size: .938rem;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-transform: uppercase;color: #333;
+    display: inline-block;
+    width: 92%;
+  }
+.ecards-panel p{
+    font-size: .875rem;
+    margin: 0 0 10px;
+    line-height: 1.8 !important;
+    margin-bottom: 22px;
+    color: #333;
+    font-family: "Helvetica Neue Regular",helvetica,arial,sans-serif;
+  }
+  .ecard-card-title
+  {
+    font-size: 14px;
+    font-family: "Helvetica Neue Regular",helvetica, arial, sans-serif;
+    width: 100%;
+    margin-bottom: 5px;
+    overflow: hidden;
+    color: #666 !important;
+    padding: 10px 15px 15px;
+    text-overflow: ellipsis;
+    text-align: center;
+    text-decoration: none !important;
+}
+.ecard-main-countner a{
+  color:#d50032;
+}
+.eCard{
+  overflow: hidden;
+  text-align: center;
+ 
+}
+.eCard a {
+  height: 360px !important;
+  width: 400px !important;
+}
+.ecards-panel a:hover{
+  color:#d50032 !important;
+}
+.banner-head {
+  font-size: 11vw;
+  font-family: 'Lora', serif;
+  margin: 0;
+  line-height: 1;
+  z-index: 1;
+}
+.banner p {
+  color: #fff;
+  z-index: 1;
+  font-size: 24px;
+  letter-spacing: 0.2px;
+  font-family: Poppins;
+  margin: 12px 0 0;
+}
+.banner{
+  background-size: cover !important;
+    max-width: initial !important;
+    color: #FFF;
+    text-align: right;
+    padding: 30px 30px;
+    width: 100%;
+    box-sizing: border-box;
+    background-position: center center;
+    position: relative;
+    height: 500px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 70px !important;
+}
+li.parent
+{
+  font-family: "Helvetica Neue Bold",helvetica,arial,sans-serif;
+    font-size: .875rem;
+    letter-spacing: 0;
+    margin-top: 20px;
+    text-transform: capitalize;
+    color: #333;
+    line-height: 1.8;
+    font-weight: bold;
+}
+li.child{
+  font-weight: normal;
+  font-family: "Helvetica Neue Bold",helvetica,arial,sans-serif;
+}
+li.child a
+{
+  color: #666;
+    display: block;
+    float: left;
+    font-size: .875rem;
+    padding-right: 5px;
+    text-transform: capitalize;
+    text-decoration: none;
+    cursor: pointer;
+}
+.Ecard-Sidebar ul li{
+  list-style: none;
+  display: grid;
+}
+
+.ecards-panel .ecard-button {
+  border-radius: 3px;
+   
+  font-family: "Helvetica Neue Regular",helvetica,arial,sans-serif;
+  font-size: .75rem; 
+  letter-spacing: 3px;   
+  text-transform: uppercase;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+ 
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 0;
+  line-height: 1;
+  
+  text-align: center;
+  text-decoration: none;
+  vertical-align: top;
+}
+.ecards-panel .ecard-button:hover{
+  color: #fff !important;
+  background-color: #d50032;
+  border-color: #d50032;
+}
+/*model*/
+.model{
+  position: absolute;
+  width: 50vw;
+  height: 200px;
+  display: block;
+  margin-left: auto; 
+  margin-right: auto; 
+  top:6vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 9;
+  
+}
+.bg-layer{
+  content: "";
+  position: fixed;
+  background-color: #3433336b;
+  width: 100%;
+  top:0;
+  left: 0;
+  bottom: 0;
+  z-index: 8;
+  display: none;
+}
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #999;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+  box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+  background-clip: padding-box;
+  outline: 0;
+  min-width: 50%;
+   
+}
+.fade {
+  opacity: 0;
+  display: none;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+.model-head{
+  padding: 15px;
+  min-height: 13px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.model-title{
+  text-align: left;
+  font-family: "Helvetica Neue Regular",helvetica,arial,sans-serif;
+  font-size: .75rem; 
+  letter-spacing: 3px;   
+  text-transform: uppercase;
+  float: left;
+}
+.close{
+  float: right;
+  font-family: "Helvetica Neue Regular",helvetica,arial,sans-serif;
+  font-size: .75rem; 
+  letter-spacing: 3px;   
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#ecard-send-email-form{
+  background: rgba(0,0,0,0);
+  border: 1px solid #e7e7e7;
+  padding: 20px  15px;
+  margin-top: 68px;
+}
+.ecard-input
+{
+  border-radius: 3px;
+    font-family: helvetica,arial,sans-serif;
+    max-width: 600px;
+    padding: 7px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: .875rem;
+}
+.ecard-label {
+  font-family: "Helvetica Neue Bold",helvetica,arial,sans-serif;
+  font-size: .875rem;
+  margin-bottom: 6px;
+  text-transform: none;
+  clear: both;
+  color: #333;
+  display: block;
+}
+@media only screen and (max-width: 480px) {
+.model{
+  width: 90vw !important;
+  top:60vh;
+}
+.model-title{
+  font-size: 11px;
+  letter-spacing: 0px;
+}
+}
