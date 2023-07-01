@@ -11,7 +11,7 @@ function AddCard()
 
     $msg = "";
 if(isset($_POST['action']) && $_POST['action'] == 'remove-tag'){
-    c54s4e4d_del_row('#__ecards',['id'=>$_POST['del_id']]);
+    c54s4e4d_del_row('#__ecards',['id'=>esc_html($_POST['del_id'])]);
     }
 if(isset($_POST['action']) && $_POST['action'] == 'add-ecard'){
     
@@ -29,11 +29,11 @@ if(isset($_POST['action']) && $_POST['action'] == 'add-ecard'){
     $dataUri = 'data:image/' . $type . ';base64,' . base64_encode($data);
  
         $data = [
-            'title'=>sanitize_text_field($_POST['tag-name']),
+            'title'=>sanitize_text_field(esc_html($_POST['tag-name'])),
             'slug'=>$slug,
             'image'=>$dataUri,   
-            'category'=>$_POST['category'],
-            'filtered'=>$_POST['filtered'],  
+            'category'=>esc_html($_POST['category']),
+            'filtered'=>esc_html($_POST['filtered']),  
         ];
    
 
@@ -41,8 +41,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'add-ecard'){
     $data = [
         'title'=>sanitize_text_field($_POST['tag-name']),
         'slug'=>$slug,
-        'category'=>$_POST['category'],
-        'filtered'=>$_POST['filtered'],  
+        'category'=>esc_html($_POST['category']),
+        'filtered'=>esc_html($_POST['filtered']),  
     ];
    }
  
@@ -52,8 +52,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'add-ecard'){
          $wpdb->insert($wpdb->prefix.'ecards',$data);
          $msg = "Ecard Created Successfully - <a target='_blank' href='".esc_url(home_url()."/ecards-home/?eCard=".$wpdb->insert_id)."'>View</a> ";
     }else{
-        c54s4e4d_update('#__ecards',$data,['id'=>$_POST['edit']]);
-         $msg = "Ecard Updated Successfully - <a target='_blank' href='".esc_url(home_url()."/ecards-home/?eCard=".$_POST['edit'])."'>View</a> ";
+        c54s4e4d_update('#__ecards',$data,['id'=>esc_html($_POST['edit'])]);
+         $msg = "Ecard Updated Successfully - <a target='_blank' href='".esc_url(home_url()."/ecards-home/?eCard=".esc_html($_POST['edit']))."'>View</a> ";
     }
     
  
@@ -149,7 +149,7 @@ if(isset($_GET['ID'])){
                     <?php if(isset($_GET['ID'])): ?>
                         <img style="width:200px" id="priview-img" src="<?php echo  esc_html($image) ?>" alt="Seleted image" /> 
                             <?php else: ?>
-                                <img style="width:200px" id="priview-img" src="<?php echo  plugins_url(APS_EC_FOLDER.'/img/imageupload.png' ) ?>" alt="<?php echo __('Seleted image') ?>" /> 
+                                <img style="width:200px" id="priview-img" src="<?php echo  plugins_url(C54SE4APS_EC_FOLDER.'/img/imageupload.png' ) ?>" alt="<?php echo __('Seleted image') ?>" /> 
                             <?php endif ?>
                     
                     </div>

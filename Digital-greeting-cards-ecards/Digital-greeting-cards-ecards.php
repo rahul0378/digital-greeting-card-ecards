@@ -4,7 +4,7 @@
  *
  * Plugin Name: Digital Greeting Cards (Ecards)
  * Description: Digital Greeting Cards (Ecards) is for Create Ecard site with this plugin..
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      APSwebtech Team
  * Author URI:  https://apswebtech.com/
  * License:     GPL-2.0+
@@ -16,11 +16,11 @@
 if (!defined('ABSPATH')) {
     exit; //block direct access
 }
-define('APS_EC_FOLDER', plugin_basename(dirname(__FILE__)));
-define('EC_DIR', WP_PLUGIN_DIR . '/' . APS_EC_FOLDER);
-define('DS', DIRECTORY_SEPARATOR); 
+define('C54SE4APS_EC_FOLDER', plugin_basename(dirname(__FILE__)));
+define('C54SE4APS_EC_DIR', WP_PLUGIN_DIR . '/' . C54SE4APS_EC_FOLDER);
+define('C54SE4APS_DS', DIRECTORY_SEPARATOR); 
 
-require EC_DIR . DS.'vendor' . DS. 'autoload.php';
+require C54SE4APS_EC_DIR .C54SE4APS_DS.'vendor' .C54SE4APS_DS. 'autoload.php';
 use Dompdf\Dompdf;
 
 add_action('wp_head', 'ECPT_ajaxurl');
@@ -38,22 +38,22 @@ function ECPT_ajaxurl() {
 REGISTER STYLES AND SCRIPTS
 */
 
-include_once( EC_DIR . DS. 'include' . DS. "scripts_styles.php" );
+include_once( C54SE4APS_EC_DIR .C54SE4APS_DS. 'include' .C54SE4APS_DS. "scripts_styles.php" );
 
 /*
 REGISTER ADMIN MENU AND PAGES
 */
-include_once( EC_DIR . DS. 'adm' . DS. "menu.php" );
-include_once( EC_DIR . DS. 'adm' . DS. 'pages' . DS. "ecards-list.php" );
-include_once( EC_DIR . DS. 'adm' . DS. 'pages' . DS. "addcard.php" );
-include_once( EC_DIR . DS. 'adm' . DS. 'pages' . DS. "categories.php" );
-include_once( EC_DIR . DS. 'adm' . DS. 'pages' . DS. "entries.php" );
+include_once( C54SE4APS_EC_DIR .C54SE4APS_DS. 'adm' .C54SE4APS_DS. "menu.php" );
+include_once( C54SE4APS_EC_DIR .C54SE4APS_DS. 'adm' .C54SE4APS_DS. 'pages' .C54SE4APS_DS. "ecards-list.php" );
+include_once( C54SE4APS_EC_DIR .C54SE4APS_DS. 'adm' .C54SE4APS_DS. 'pages' .C54SE4APS_DS. "addcard.php" );
+include_once( C54SE4APS_EC_DIR .C54SE4APS_DS. 'adm' .C54SE4APS_DS. 'pages' .C54SE4APS_DS. "categories.php" );
+include_once( C54SE4APS_EC_DIR .C54SE4APS_DS. 'adm' .C54SE4APS_DS. 'pages' .C54SE4APS_DS. "entries.php" );
 
 /*
 INCLUDE PAGES
 */
-include_once( EC_DIR . DS. 'include' . DS. "ecard-submit.php" );
-include_once( EC_DIR . DS. 'include' . DS.  "functions.php" );
+include_once( C54SE4APS_EC_DIR .C54SE4APS_DS. 'include' .C54SE4APS_DS. "ecard-submit.php" );
+include_once( C54SE4APS_EC_DIR .C54SE4APS_DS. 'include' .C54SE4APS_DS.  "functions.php" );
 
  
 
@@ -170,18 +170,18 @@ add_shortcode('ECARDS_VIEW', 'ECPTAPS_ecard_view_shortcode');
  
 if (!function_exists('ECPTAPS_ecard_view_shortcode')) {
 function ECPTAPS_ecard_view_shortcode( $param = "") {
-       include_once( EC_DIR . DS. 'template' . DS. "sidebar.php" );
+       include_once( C54SE4APS_EC_DIR .C54SE4APS_DS. 'template' .C54SE4APS_DS. "sidebar.php" );
         ob_start();
         if(isset($_GET['eCard'])){
-             include_once( EC_DIR . DS. 'template' . DS. "ecards-single.php" );
+             include_once( C54SE4APS_EC_DIR .C54SE4APS_DS. 'template' .C54SE4APS_DS. "ecards-single.php" );
          }
         else if(isset($_GET['cat'])){
             
-            include_once( EC_DIR . DS. 'template' . DS. "ecards-list.php" );
+            include_once( C54SE4APS_EC_DIR .C54SE4APS_DS. 'template' .C54SE4APS_DS. "ecards-list.php" );
         }
         else{
             
-             include_once( EC_DIR . DS. 'template' . DS. "ecards-list.php" );
+             include_once( C54SE4APS_EC_DIR .C54SE4APS_DS. 'template' .C54SE4APS_DS. "ecards-list.php" );
             }
             return ob_get_clean();
       }
@@ -191,7 +191,7 @@ if (!function_exists('ECPTAPS_install_demo')) {
 function ECPTAPS_install_demo(){
     global $wpdb;
    
-    include_once( EC_DIR . DS. 'include' . DS. "sampledata.php" );
+    include_once( C54SE4APS_EC_DIR .C54SE4APS_DS. 'include' .C54SE4APS_DS. "sampledata.php" );
     foreach($wp_ecards as $ecard){
         $wpdb->insert($wpdb->prefix.'ecards',$ecard);
     }

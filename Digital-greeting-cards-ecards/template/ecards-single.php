@@ -22,7 +22,7 @@ else :
       </div>
       <div style="text-align:center" class="col span_5_of_10">
         <form action="">
-          <h2><?php echo __($data->title) ?></h2>
+          <h2><?php $data->title  ?></h2>
           <button style="width: 50%; margin:0 auto;" class="ecard-button"><?php echo __('Personalize and Send') ?></button>
           <input type="hidden" name="eCard" value="<?php echo esc_html($_GET['eCard']) ?>" />
           <input type="hidden" name="Personalize" value="1" />
@@ -111,10 +111,10 @@ else :
           <?php else :
 
           ?>
-          <input type="hidden" id="ecard-id" value="<?php echo $_POST['ecard-id'] ?>" />
-          <div style="display:none;" id="ecard-msg"><?php echo stripslashes($_POST['ecard-msg'])  ?></div>
-          <input type="hidden" id="page-id" value="<?php echo $_POST['page-id'] ?>" />
-          <input type="hidden" id="image" value="<?php echo $_POST['image'] ?>" />
+          <input type="hidden" id="ecard-id" value="<?php echo esc_html($_POST['ecard-id']) ?>" />
+          <div style="display:none;" id="ecard-msg"><?php echo stripslashes(wp_kses($_POST['ecard-msg'],c54s4e4d_allowed_html()))  ?></div>
+          <input type="hidden" id="page-id" value="<?php echo esc_html($_POST['page-id']) ?>" />
+          <input type="hidden" id="image" value="<?php echo esc_html($_POST['image']) ?>" />
 
 
           <div id="editor" class="section group ecards-panel">
@@ -230,10 +230,10 @@ else :
       " class="card-page-1">
                   <!-- image will be 318X480 -->
                   <div><img src='<?php echo $data->image ?>' /></div>
-                  <div style="padding:10px"><?php echo stripslashes($_POST['ecard-msg']) ?></div>
+                  <div style="padding:10px"><?php echo stripslashes(wp_kses($_POST['ecard-msg'],c54s4e4d_allowed_html())) ?></div>
 
                 </div>
-
+                
               </div>
             </div>
 

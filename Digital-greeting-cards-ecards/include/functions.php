@@ -116,12 +116,12 @@ function c54s4e4d_cardsDB_print_options($items, $selected, $html=''){
         for($a=1;$a<=$item->lavel;$a++){ $labels .= "-";}
 
         if($selected==$item->id){
-            echo '<option selected value="'.$item->id.'">'.$labels.__($item->title).'</option>';
+            echo '<option selected value="'.$item->id.'">'.$labels.$item->title.'</option>';
         }else{
             if($item->parent==0){
-                echo '<option  value="'.$item->id.'">'.$labels.__($item->title).'</option>';
+                echo '<option  value="'.$item->id.'">'.$labels.$item->title.'</option>';
             }else{
-                echo '<option value="'.$item->id.'">'.$labels.__($item->title).'</option>';
+                echo '<option value="'.$item->id.'">'.$labels.$item->title.'</option>';
             }
             
         }
@@ -158,3 +158,28 @@ function c54s4e4d_cardsDB_get_child_count($id){
     return  $cats[0]->total;
 }
 }
+
+if (!function_exists('c54s4e4d_allowed_html')) {
+    function c54s4e4d_allowed_html($id){
+        return  array(
+            'span' => array(
+              'style' => array(),
+            ),
+            'p' => array(
+                'style' => array(),
+              ),
+            'strong' => array(
+                'style' => array(),
+              ),  
+            'br' => array(),
+            'img' => array(
+                'title' => array(),
+                'src'	=> array(),
+                'alt'	=> array(),
+            ),
+            'em'=>array()
+          );
+    }
+    }
+
+  $str = wp_kses( $str, $allowed_html );

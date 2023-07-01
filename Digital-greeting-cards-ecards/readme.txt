@@ -2,7 +2,7 @@
 Contributors: Apswebtech
 Tags: ecards, greeting cards,Birthday greeting card, Live Cards
 Requires at least: 6.1.1
-Tested up to:6.1.1
+Tested up to:6.2.2
 Stable tag: 1.0.1
 Donate link: https://apswebtech.com/
 Requires PHP: 7.4

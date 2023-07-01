@@ -41,7 +41,7 @@ else{
             if(c54s4e4d_cardsDB_get_child_count($cat->id)):
               ?>
                <div class='sections sid_<?php echo $cat->id  ?>'>
-                <h2 class='list-title'><?php echo __($cat->title) ?></h2>
+                <h2 class='list-title'><?php echo $cat->title ?></h2>
                  <?php if(isset($_GET['cat'])): 
                    $cards =  $wpdb->get_results("SELECT *  FROM `" . $wpdb->prefix . "ecards` Where category = " . $cat->id." ORDER BY `id`");
                   ?>

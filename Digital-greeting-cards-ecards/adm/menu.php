@@ -32,13 +32,13 @@ function Ecard_Settings()
 			update_option("ecard_banner_title",esc_html($_POST['ecard_banner_title']));
 		}
 		if(isset($_POST['ecard_banner_slogan'])){
-			update_option("ecard_banner_slogan",$_POST['ecard_banner_slogan']);
+			update_option("ecard_banner_slogan",esc_html($_POST['ecard_banner_slogan']));
 		}
 		if(isset($_POST['ecards_top_content_title'])){
 			update_option("ecards_top_content_title",esc_html($_POST['ecards_top_content_title']));
 		}
 		if(isset($_POST['ecards_top_content'])){
-			update_option("ecards_top_content",$_POST['ecards_top_content']);
+			update_option("ecards_top_content",esc_html($_POST['ecards_top_content']));
 		}
 	}
  
@@ -74,7 +74,7 @@ function Ecard_Settings()
 					<?php if (get_option("ecard_banner_img")) : ?>
 						<img style="width:200px" id="priview-img" src="<?php echo esc_html(get_option("ecard_banner_img")) ?>" alt="<?php __('Seleted Image') ?>" />
 					<?php else : ?>
-						<img style="width:200px" id="priview-img" src="<?php echo esc_html(plugins_url(APS_EC_FOLDER . '/img/imageupload.png')) ?>" alt="<?php __('Seleted Image') ?>" />
+						<img style="width:200px" id="priview-img" src="<?php echo esc_html(plugins_url(C54SE4APS_EC_FOLDER . '/img/imageupload.png')) ?>" alt="<?php __('Seleted Image') ?>" />
 					<?php endif ?>
 					</form>	
 				</div>

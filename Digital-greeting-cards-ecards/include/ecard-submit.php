@@ -1,7 +1,7 @@
 <?php
 add_action("wp_ajax_ecardformsubmit", "ecardformsubmit");
-//include_once(EC_DIR.'/TCPDF-main/tcpdf_include.php');
-require EC_DIR . DS.'vendor' . DS. 'autoload.php';
+//include_once(C54SE4APS_EC_DIR.'/TCPDF-main/tcpdf_include.php');
+require C54SE4APS_EC_DIR .C54SE4APS_DS.'vendor' .C54SE4APS_DS. 'autoload.php';
 use Dompdf\Dompdf;
 
  
@@ -51,9 +51,9 @@ if(isset($_POST['action']) && $_POST['action']=='ecardformsubmit'){
 		$data['from_email'] = esc_html($post['from']);
 		$data['to_email'] 	= esc_html($post['to']);
 		$data['email'] 		= esc_html($post['email']);
-		$data['image'] 		= $post['image'];
+		$data['image'] 		= esc_html($post['image']);
 		$data['message'] 	= htmlentities($post['msg']); 
-    $data['ecard_type'] = $post['ecardtype']; 
+    $data['ecard_type'] = esc_html($post['ecardtype']); 
          
 
         global $wpdb;
@@ -66,8 +66,8 @@ if(isset($_POST['action']) && $_POST['action']=='ecardformsubmit'){
             wp_send_json( ['status'=>false, $data  ]);
         }
         else{
-            $pdfFileName = createPDF($data);         
-		       //  sendPDFtoMail($data, $pdfFileName);
+            $pdfFileName = C54SE4APS_createPDF($data);         
+		        C54SE4APS_sendPDFtoMail($data, $pdfFileName);
             wp_send_json (['status'=>true]);
            
         }
@@ -80,7 +80,7 @@ if(isset($_POST['action']) && $_POST['action']=='ecardformsubmit'){
     die(); 
  }
 
-function createPDF($data) {
+function C54SE4APS_createPDF($data) {
 
 
    if($data['ecard_type']== 'potrait'){
@@ -142,13 +142,13 @@ box-shadow: 0 10px 5px 5px #BABABA; margin-top: -9px;" class="card-page-2">
     
     $dompdf->render();
     $output = $dompdf->output();
-    $file_name = EC_DIR.'/pdfs/'."ecard_".$data['from_email'].'_'.date('His').".pdf";
+    $file_name = C54SE4APS_EC_DIR.'/pdfs/'."ecard_".$data['from_email'].'_'.date('His').".pdf";
     file_put_contents($file_name, $output);
 
     return $file_name;
 
 }
-function sendPDFtoMail($data, $pdfFileName) {
+function C54SE4APS_sendPDFtoMail($data, $pdfFileName) {
     $mail_html = '<div class="border-wr" style="width:"400px"; padding: 15px;">
 
             <span class="preview_clr"></span><img src="'.$data['image'].'" style="width: auto; height: 200mm;">

@@ -5,7 +5,7 @@ function categories()
 
 
 if(isset($_POST['action']) && $_POST['action'] == 'remove-tag'){
-    c54s4e4d_del_row('#__ecards_categories',['id'=>$_POST['del_id']]);
+    c54s4e4d_del_row('#__ecards_categories',['id'=>esc_html($_POST['del_id'])]);
     }
 if(isset($_POST['action']) && $_POST['action'] == 'add-tag'){
   
@@ -34,7 +34,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'add-tag'){
         c54s4e4d_insert('#__ecards_categories',$data);
          $msg = "Category Created Successfully ";
     }else{
-        c54s4e4d_update('#__ecards_categories',$data,['id'=>$_POST['edit']]);
+        c54s4e4d_update('#__ecards_categories',$data,['id'=>esc_html($_POST['edit'])]);
          $msg = "Category Updated Successfully ";
     }
     
