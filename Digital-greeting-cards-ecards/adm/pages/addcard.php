@@ -11,7 +11,7 @@ function AddCard()
 
     $msg = "";
 if(isset($_POST['action']) && $_POST['action'] == 'remove-tag'){
-    c54s4e4d_del_row('#__ecards',['id'=>esc_html($_POST['del_id'])]);
+    c54s4e4d_del_row('#__ecards',['id'=>sanitize_text_field($_POST['del_id'])]);
     }
 if(isset($_POST['action']) && $_POST['action'] == 'add-ecard'){
     
@@ -29,11 +29,11 @@ if(isset($_POST['action']) && $_POST['action'] == 'add-ecard'){
     $dataUri = 'data:image/' . $type . ';base64,' . base64_encode($data);
  
         $data = [
-            'title'=>sanitize_text_field(esc_html($_POST['tag-name'])),
+            'title'=>sanitize_text_field(sanitize_text_field($_POST['tag-name'])),
             'slug'=>$slug,
             'image'=>$dataUri,   
-            'category'=>esc_html($_POST['category']),
-            'filtered'=>esc_html($_POST['filtered']),  
+            'category'=>sanitize_text_field($_POST['category']),
+            'filtered'=>sanitize_text_field($_POST['filtered']),  
         ];
    
 
@@ -41,8 +41,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'add-ecard'){
     $data = [
         'title'=>sanitize_text_field($_POST['tag-name']),
         'slug'=>$slug,
-        'category'=>esc_html($_POST['category']),
-        'filtered'=>esc_html($_POST['filtered']),  
+        'category'=>sanitize_text_field($_POST['category']),
+        'filtered'=>sanitize_text_field($_POST['filtered']),  
     ];
    }
  
@@ -52,15 +52,15 @@ if(isset($_POST['action']) && $_POST['action'] == 'add-ecard'){
          $wpdb->insert($wpdb->prefix.'ecards',$data);
          $msg = "Ecard Created Successfully - <a target='_blank' href='".esc_url(home_url()."/ecards-home/?eCard=".$wpdb->insert_id)."'>View</a> ";
     }else{
-        c54s4e4d_update('#__ecards',$data,['id'=>esc_html($_POST['edit'])]);
-         $msg = "Ecard Updated Successfully - <a target='_blank' href='".esc_url(home_url()."/ecards-home/?eCard=".esc_html($_POST['edit']))."'>View</a> ";
+        c54s4e4d_update('#__ecards',$data,['id'=>sanitize_text_field($_POST['edit'])]);
+         $msg = "Ecard Updated Successfully - <a target='_blank' href='".esc_url(home_url()."/ecards-home/?eCard=".sanitize_text_field($_POST['edit']))."'>View</a> ";
     }
     
  
 }
 
 if(isset($_GET['ID'])){
-    $data = c54s4e4d_row("select * FROM #__ecards where id=".   esc_html($_GET['ID']));
+    $data = c54s4e4d_row("select * FROM #__ecards where id=".   sanitize_text_field($_GET['ID']));
    
     $name = $data->title;
     $slug = $data->slug;
@@ -94,12 +94,12 @@ if(isset($_GET['ID'])){
                         <input type="hidden" name="action" value="add-ecard">                        
                         <div class="form-field form-required term-name-wrap">
                             <label for="tag-name"><?php echo __('E-card Title') ?></label><br>
-                            <input name="tag-name" id="tag-name" type="text" value="<?php echo esc_html($name) ?>"    required >
+                            <input name="tag-name" id="tag-name" type="text" value="<?php echo sanitize_text_field($name) ?>"    required >
                              
                         </div>
                         <div class="form-field term-slug-wrap">
                             <label for="tag-slug"><?php echo __('Slug') ?></label><br>
-                            <input name="slug" id="tag-slug" type="text" value="<?php echo esc_html($slug) ?>">                            
+                            <input name="slug" id="tag-slug" type="text" value="<?php echo sanitize_text_field($slug) ?>">                            
                         </div>
                         <div class="form-field term-slug-wrap">
                             <label for="tag-slug"><?php echo __('Card Image') ?></label><br>
@@ -136,7 +136,7 @@ if(isset($_GET['ID'])){
                         <br>
                         <p class="submit">
                             <?php if(isset($_GET['ID'])): ?>
-                            <input type="hidden" id="edit" name="edit" value="<?php echo esc_html($_GET['ID']) ?>" />
+                            <input type="hidden" id="edit" name="edit" value="<?php echo sanitize_text_field($_GET['ID']) ?>" />
                             <input type="submit" name="submit" id="submit" class="button button-primary" value="<?php echo __('Update Ecard') ?>"> <span class="spinner"></span>
                             <?php else: ?>
                             <input type="hidden" id="edit" name="edit" value="0" />
@@ -147,7 +147,7 @@ if(isset($_GET['ID'])){
                     </form>
                     <div>
                     <?php if(isset($_GET['ID'])): ?>
-                        <img style="width:200px" id="priview-img" src="<?php echo  esc_html($image) ?>" alt="Seleted image" /> 
+                        <img style="width:200px" id="priview-img" src="<?php echo  sanitize_text_field($image) ?>" alt="Seleted image" /> 
                             <?php else: ?>
                                 <img style="width:200px" id="priview-img" src="<?php echo  plugins_url(C54SE4APS_EC_FOLDER.'/img/imageupload.png' ) ?>" alt="<?php echo __('Seleted image') ?>" /> 
                             <?php endif ?>

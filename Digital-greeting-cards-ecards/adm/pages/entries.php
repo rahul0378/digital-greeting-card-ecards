@@ -30,9 +30,9 @@ class _List_Table_manage_entries extends WP_List_Table {
 
       /* -- Preparing your query -- */
       $query = "SELECT * FROM `".$table."`";
-      if(!isset($_GET["orderby"])){$orderby =$table.'.id';}else{$orderby =esc_html($_GET["orderby"]);}
-      if(!isset($_GET["order"])){$order ='DESC';}else{$order =esc_html($_GET["order"]);}
-      if(!isset($_GET["paged"])){$paged =1;}else{$paged =esc_html($_GET["paged"]);}
+      if(!isset($_GET["orderby"])){$orderby =$table.'.id';}else{$orderby =sanitize_text_field($_GET["orderby"]);}
+      if(!isset($_GET["order"])){$order ='DESC';}else{$order =sanitize_text_field($_GET["order"]);}
+      if(!isset($_GET["paged"])){$paged =1;}else{$paged =sanitize_text_field($_GET["paged"]);}
       /* -- Ordering parameters -- */
          //Parameters that are going to be used to order the result      
         $query.=' ORDER BY '.$orderby.' '.$order;
@@ -124,9 +124,9 @@ class _List_Table_manage_entries extends WP_List_Table {
                switch ( $column_name ) {	 
                case "col_Id":  echo '<td '.$attributes.'>'.$rec->id.'</td>';   break;
                case "col_view":  echo '<td '.$attributes.'><img src="'.$rec->image.'" width="100" /></a></td>';   break;
-               case "col_from_email":  echo '<td '.$attributes.'>'.sanitize_email($rec->from_email).'</a></td>';   break;		
-               case "col_to_email":  echo '<td '.$attributes.'>'.sanitize_email($rec->to_email).'</td>';   break; 
-               case "col_email":  echo '<td '.$attributes.'>'.sanitize_email($rec->email).'</td>';   break;  
+               case "col_from_email":  echo '<td '.$attributes.'>'.sanitize_text_field($rec->from_email).'</a></td>';   break;		
+               case "col_to_email":  echo '<td '.$attributes.'>'.sanitize_text_field($rec->to_email).'</td>';   break; 
+               case "col_email":  echo '<td '.$attributes.'>'.sanitize_text_field($rec->email).'</td>';   break;  
                case "col_message":  echo '<td '.$attributes.'><a class="button viewpriview" onclick="showpriv('.$rec->id.')" >'.__('View').'</a></td>';   
                 echo '<div id="preview-model'.$rec->id.'" class="model fade">
                 <div class="modal-content">
@@ -261,7 +261,7 @@ class _List_Table_manage_entries extends WP_List_Table {
     {
         global $wpdb;
         $table = $wpdb->prefix."ecards_entries";
-        $where =array('id'=>esc_html($_GET['delid']));
+        $where =array('id'=>sanitize_text_field($_GET['delid']));
         $wpdb->delete( $table,$where); 
         echo '<div id="message" class="updated notice is-dismissible"><p>'.__('Deleted').' !</p>
         <button type="button" class="notice-dismiss">

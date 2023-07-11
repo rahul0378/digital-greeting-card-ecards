@@ -29,16 +29,16 @@ function Ecard_Settings()
 			 update_option("ecard_banner_img",$dataUri);
 		}
 		if(isset($_POST['ecard_banner_title'])){
-			update_option("ecard_banner_title",esc_html($_POST['ecard_banner_title']));
+			update_option("ecard_banner_title",sanitize_text_field($_POST['ecard_banner_title']));
 		}
 		if(isset($_POST['ecard_banner_slogan'])){
-			update_option("ecard_banner_slogan",esc_html($_POST['ecard_banner_slogan']));
+			update_option("ecard_banner_slogan",sanitize_text_field($_POST['ecard_banner_slogan']));
 		}
 		if(isset($_POST['ecards_top_content_title'])){
-			update_option("ecards_top_content_title",esc_html($_POST['ecards_top_content_title']));
+			update_option("ecards_top_content_title",sanitize_text_field($_POST['ecards_top_content_title']));
 		}
 		if(isset($_POST['ecards_top_content'])){
-			update_option("ecards_top_content",esc_html($_POST['ecards_top_content']));
+			update_option("ecards_top_content",sanitize_text_field($_POST['ecards_top_content']));
 		}
 	}
  
@@ -46,7 +46,7 @@ function Ecard_Settings()
 	<div id="col-container" style="background-color:#f0f0f1;" class="wp-clearfix">
 		<?php if ($msg) : ?>
 			<div id="message" class="updated notice is-dismissible">
-				<p><?php echo esc_html($msg) ?></p>
+				<p><?php echo sanitize_text_field($msg) ?></p>
 				<button type="button" class="notice-dismiss">
 					<span class="screen-reader-text"><?php __('Dismiss this notice') ?>.</span>
 				</button>
@@ -72,9 +72,9 @@ function Ecard_Settings()
 				   <div >
 				   <?php __('Seleted Image') ?><br />
 					<?php if (get_option("ecard_banner_img")) : ?>
-						<img style="width:200px" id="priview-img" src="<?php echo esc_html(get_option("ecard_banner_img")) ?>" alt="<?php __('Seleted Image') ?>" />
+						<img style="width:200px" id="priview-img" src="<?php echo sanitize_text_field(get_option("ecard_banner_img")) ?>" alt="<?php __('Seleted Image') ?>" />
 					<?php else : ?>
-						<img style="width:200px" id="priview-img" src="<?php echo esc_html(plugins_url(C54SE4APS_EC_FOLDER . '/img/imageupload.png')) ?>" alt="<?php __('Seleted Image') ?>" />
+						<img style="width:200px" id="priview-img" src="<?php echo sanitize_text_field(plugins_url(C54SE4APS_EC_FOLDER . '/img/imageupload.png')) ?>" alt="<?php __('Seleted Image') ?>" />
 					<?php endif ?>
 					</form>	
 				</div>
